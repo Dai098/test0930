@@ -31,6 +31,7 @@
       countUp();
     },10);
   }
+  
   start.addEventListener('click',function() {
     startTime = Date.now();
     countUp();
@@ -38,13 +39,6 @@
     stop.removeAttribute("disabled");
     reset.removeAttribute("disabled");
     
-    setInterval(() => {
-      var nowMs = Date.now();
-      var elapsedMs = nowMs - startMs;
-      var ms = elapsedMs % 1000;
-      
-      timer.textContent = ms;
-    },10);
   });
   
   stop.addEventListener('click',function() {
@@ -56,6 +50,7 @@
   });
   
   reset.addEventListener('click',function() {
+    clearInterval(timerId);
     elapsedTime = 0;
     timeToadd = 0;
     updateTimetText();
